@@ -49,7 +49,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
-          images: ${{ vars.MY_DOCKER_HUB_NAMEPSPACE}}/github-action-exercises:0.0.1
+          images: ${{ vars.MY_DOCKER_HUB_NAMEPSPACE}}/github-action-exercises
 
       - name: Build and push Docker image
         id: push
@@ -58,7 +58,8 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          # tags: ${{ steps.meta.outputs.tags }}
+          tags: 0.0.1
           labels: ${{ steps.meta.outputs.labels }}
 
       # - name: Generate artifact attestation
