@@ -28,6 +28,7 @@ jobs:
       run: dotnet test --no-build --verbosity normal
   
   push_to_registry:
+    needs: build
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
     permissions:
